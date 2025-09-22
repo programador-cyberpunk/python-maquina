@@ -41,3 +41,20 @@ dt_pred = dt.predict(X_test)
 
 print("Accuracy of Decision Tre Classifier: ", accuracy_score(Y_test, dt_pred))
 print("Precision of Decision Tree Classifier: ", precision_score(Y_test, dt_pred, average='weighted'))
+print("Recall of Decision Tree Classifier: ", recall_score(Y_test, dt_pred, average='weighted'))
+print("F1_score of Decision Tree Classifier: ", f1_score(Y_test, dt_pred, average='weighted'))
+print(classification_report(Y_test, dt_pred))
+print(confusion_matrix(Y_test, dt_pred))
+
+#os suportes vetore de maquina
+svm_clf = svm.SVC(Kkernel='linear')
+svm_clif.fit(X_train, Y_train)
+svm_clif_pred = svm_clf.predict(X_test)
+
+#imprimindo as metricas
+print("Accuracy of SVM Classifier: ", accuracy_score(Y_test, svm_clf_pred))
+print("Precision of SVM Classifier: ", precision_score(Y_test, svm_clf_pred, average='weighted'))
+print("Recall of SVM Classifier: ", recall_score(Y_test, svm_clf_pred, average='weighted'))
+print("F1_score of SVM Classifier: ", f1_score(Y_test, svm_clf_pred, average='weighted'))
+print(classification_report(Y_test, svm_clf_pred))
+print(confusion_matrix(Y_test, svm_clf_pred))
