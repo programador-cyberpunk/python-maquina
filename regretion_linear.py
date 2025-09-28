@@ -46,3 +46,4 @@ df_contagem
 
 sns.boxplot(casas, showfliers = False)
 sns.pairplot(casas)
+
