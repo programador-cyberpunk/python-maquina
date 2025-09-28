@@ -46,4 +46,30 @@ df_contagem
 
 sns.boxplot(casas, showfliers = False)
 sns.pairplot(casas)
+sns.heatmap(casas.corr(numeric_only=True))
 
+casas. head(2)
+
+x = casas[['Avg. Area Income', 'Avg. Area House Age', 'Avg. Area Number of Rooms', 'Avg. Area Number of Bedrooms', 'Area Population']]
+y = casas['Price']
+
+from sklearn.model_selection import train_test_split
+x_treino, x_teste, y_treino, y_teste = train_test_split(x, y, test_size=0.7, random_state=50)
+from sklearn.linear_model import LinearRegression
+LR = LinearRegression()
+LR.fit(x_treino, y_treino)
+
+LinearRegression()
+predicao = LR.predict(x_teste)
+plt.scatter(y_teste, predicao)
+
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+
+mae = mean_absolute_error(y_true=y_teste, y_pred = predicao)
+mse = mean_squared_error(y_true=y_teste, y_pred = predicao)
+rmse = mean_squared_error(y_true=y_teste, y_pred = predicao, squared=False)
+
+print("mae: " ,mae)
+print("mse: ", mae)
+print("rmse: ", rmse
+      )
