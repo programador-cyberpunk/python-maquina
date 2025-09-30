@@ -61,3 +61,16 @@ plt.xlabel('region')
 plt.ylabel('charges')
 plt.show()
 
+#pre processamento e tratamento de dados das paradas
+df['sex'] = df['sex'].map({'female': 0, 'male': 1})
+df['smoker'] = df['smoker'].map({'no': 0, 'yes': 1})
+df = pd.get_dummies(df, colmuns['region'], drop_first=True)
+
+#analisando a correlaçao
+corr_matrix = df.corr()
+
+plt.figure(figsize=(10,8))
+sns.heatmap(corr_matrix, annot=True, camp='coolwarm', fmt= '.2f',linewidth=0.5)
+plt.title('Matriz de correlacao')
+plt.show()
+
