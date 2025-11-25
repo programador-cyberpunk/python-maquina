@@ -33,7 +33,6 @@ print(f"A acuracia desse role de naive baiyes eh: {accuracy_nb:.4f}")
 print(" validaçao do modelo K-Fold agora (k=10): ")
 
 #as avaliaçoes e metodos
-#medindo a acuracia desse bagulho
 kfold_cv = Kfold(n_splits=10, schuffle=True,random_state=42)
 n_splits = 10
 knn_cv = KNeighborsClassifier(n_neighbors=5)
@@ -45,6 +44,9 @@ nb_cv = GaussianNB()
 accuracy_nb = accuracy_score(Y_teste, Y_pred_nb)
 knn_scores = cross_val_score(knn_cv,X,Y, cv=kfold_cv, scoring='accuracy')
 knn_scores_cv = cross_val_score(KNeighborsClassifier(n_neighbors=5), X,Y, cv=kfold_cv,scoring='accuracy')
+
+#medindo a acuracia desse bagulho
+
 print("\n KNN (k=5) - pontos K-Fold: ")
 for i, score in enumarete(knn_scores_cv):
     print(f" Fold {i+1}: "{score:.4f})
