@@ -1,9 +1,20 @@
+#importando os bagulho
 from sklearn.model_selection import cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
 from sklearn.model_selection import KFold
 import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.model import naive_bayes
+
+
+
 #deiniçoes
+wine = load_wine()
+x = wine.data
+y = wine.target
+df = pd.DataFrame(data=X, columns=wine.feature_names)
+df['target'] = Y
 knn = KNeighborsClassifier(n_neighbors=5)
 scores = cross_val_score(knn,digits.data,digits.target,cv=10, scoring='accuracy')
 print(scores.mean())
