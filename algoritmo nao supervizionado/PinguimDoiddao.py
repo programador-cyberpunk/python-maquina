@@ -18,6 +18,7 @@ df = sns.load_dataset('penguins')
 df.info()
 df.descbribe()
 colunas = ['bill_lenght_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g']
+print(df.head())
 
 #treinando e dividindo
 X_treino,X_teste,y_treino,y_teste = train_test_split(df[ colunas],df['species'],test_size=0.3,random_state=42)
@@ -30,3 +31,19 @@ rf = RandomForestClassifier(n_estimators=40)
 rf.fit(X_treino,y_treino)
 scores = cross_val_score(RandomForestClassifier(n_estimators=5),df[colunas],df['species'],cv=10)
 print("Validação dos valores cuzados ai: ",np.average(scores))
+
+#os Kmeanhos da verdade (que piada de bosta)
+kmeans=KMeans(
+    init="random",
+    n_clusters=4,
+    n_init=20,
+    max_iter=800,
+    random_state=56
+)
+kmeans.fit(X_treino,y_treino)
+kmeans.intertia_
+kmeans.cluster_centers_
+kmeans.n_iter_
+kmeans.labels_[:10]
+Labels[:10]
+
